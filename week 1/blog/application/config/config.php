@@ -29,7 +29,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -459,18 +459,7 @@ $config['compress_output'] = FALSE;
 |--------------------------------------------------------------------------
 | Master Time Reference
 |--------------------------------------------------------------------------
-|<!DOCTYPE html>
-<html>
-<head>
-	<title>403 Forbidden</title>
-</head>
-<body>
-
-<p>Directory access is forbidden.</p>
-
-</body>
-</html>
-
+|
 | Options are 'local' or any PHP supported timezone. This preference tells
 | the system whether to use your server's local time as the master 'now'
 | reference, or convert it to the configured one timezone. See the 'date
