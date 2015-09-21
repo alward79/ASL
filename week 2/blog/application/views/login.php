@@ -6,14 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
 <head>
     <title>Form</title>
-     <!-- CSS
- 	================================================== -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  
+   
 </head>
 <body>
 	<!-- Primary Page Layout
@@ -35,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<li><a href="#">About</a></li>
 						<li class="dropdown"><a href="#" data-toggle="dropdown">Admin<span class="caret"></a></span>
 							<ul class="dropdown-menu">
-								<li><a href="register_view.php">New User</a></li>
+								<li><a href="register.php\">New User</a></li>
 								<li><a href="#">Log out</a></li>
 							</ul>                    
 						</li> 
@@ -52,13 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		echo form_submit('submit', 'Login');
 		echo form_close();
 	?>
-	
-
-	<!-- Footer
-    ================================================== -->
-	<footer>
-		<small>Developed and designed by Angelena Ward Copyright &copy 2015</small>
-	</footer>		
 	
 	<!-- JavaScript
     ================================================== -->
