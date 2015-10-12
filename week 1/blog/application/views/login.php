@@ -1,71 +1,69 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+	defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Form</title>
-     <!-- CSS
- 	================================================== -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">   
 </head>
 <body>
 	<!-- Primary Page Layout
 	================================================== -->
-	<div class="container">
-		<!--navigation -->
-		<div class="row">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="glyphicon glyphicon-arrow-down"></span>
-					  	MENU
-					</button>
-				</div>
-				<div class="collapse navbar-collapse" id="collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.php">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li class="dropdown"><a href="#" data-toggle="dropdown">Admin<span class="caret"></a></span>
-							<ul class="dropdown-menu">
-								<li><a href="register.php">New User</a></li>
-								<li><a href="#">Log out</a></li>
-							</ul>                    
-						</li> 
-					</ul> 
-				</div>
-			 </nav>
-		</div>
-	</div>
 
 	<?php
-		echo form_open('blog');
-		echo form_input('uname', 'admin');
-		echo form_password('password', 'password');
-		echo form_submit('submit', 'Login');
-		echo form_close();
+		if (isset($this->session->userdata['logged_in'])) {
+		header("location: http://localhost:8888/blog/index.php/user_authentication/user_login_process");
+		}
+	?>
+
+	<?php
+		if (isset($logout_message)) {
+			echo "<div class='message'>";
+			echo $logout_message;
+			echo "</div>";
+		}
 	?>
 	
-
-	<!-- Footer
-    ================================================== -->
-	<footer>
-		<small>Developed and designed by Angelena Ward Copyright &copy 2015</small>
-	</footer>		
+	<?php
+		if (isset($message_display)) {
+			echo "<div class='message'>";
+			echo $message_display;
+			echo "</div>";
+		}
+	?>
+	<div id="main">
+		<div id="login">
+			<h2>Login Form</h2>
+			<hr/>
+			<?php echo form_open('user_authentication/user_login_process'); ?>
+			<?php
+				echo "<div class='error_msg'>";
+				
+				if (isset($error_message)) {
+					echo $error_message;
+				}
+				echo validation_errors();
+				
+				echo "</div>";
+			?>
+			<label>UserName </label>
+			<input type="text" name="username" id="name" placeholder="username"/><br /><br />
+			
+			<label>Password </label>
+			<input type="password" name="password" id="password" placeholder="**********"/><br/><br />
+			<input type="submit" value=" Login " name="submit"/><br />
+			<a href="<?php echo base_url() ?>index.php/user_authentication/user_registration_show">Not A Member Register here!</a>
+			<?php echo form_close(); ?>
+		</div>
+	</div>
 	
 	<!-- JavaScript
-    ================================================== -->
+	================================================== -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
-
 
 </body>
 </html>
